@@ -1,11 +1,8 @@
 {
-  "name": "trading-journal-ai",
+  "name": "trading-journal-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cuongccna/trading-journal-ai.git"
@@ -13,16 +10,25 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/cuongccna/trading-journal-ai/issues"
   },
   "homepage": "https://github.com/cuongccna/trading-journal-ai#readme",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.0",
-    "express": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^12.0.0",
     "firebase-admin": "^13.4.0",
-    "uuid": "^11.1.0"
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^11.1.0",
+    "zod": "^4.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
