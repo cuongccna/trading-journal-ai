@@ -1,7 +1,11 @@
 import { db } from '../firebase.js';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
-import jwt from 'jsonwebtoken';
+
+import jwt from 'jsonwebtoken'; // Nhớ cài npm install jsonwebtoken
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 export const createUser = async (req, res) => {
   try {
@@ -47,4 +51,18 @@ export const loginUser = async (req, res) => {
     console.error(err);
     res.status(500).json({ error: 'Failed to login user' });
   }
+
+  const user = snapshot.docs[0].data();
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    return res.status(401).json({ message: 'Sai email hoặc mật khẩu!' });
+  }
+  // Tạo JWT token
+  const token = jwt.sign(
+    { id: user.id, email: user.email },
+    process.env.JWT_SECRET,
+    { expiresIn: '2d' }
+  );
+  res.json({ token, user: { id: user.id, email: user.email } });
+
 };
