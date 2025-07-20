@@ -15,7 +15,8 @@
   },
   "homepage": "https://github.com/cuongccna/trading-journal-ai#readme",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
