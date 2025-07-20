@@ -19,6 +19,7 @@ import aiInsightsRouter from './routes/aiInsights.js';
 import marketFlowsRouter from './routes/marketFlows.js';
 import flowInsightsRouter from './routes/flowInsights.js';
 import loginRouter from './routes/login.js';
+import dashboardRouter from './routes/dashboard.js';
 
 dotenv.config();
 const app = express();
@@ -43,6 +44,7 @@ app.use('/api/aiinsights', aiInsightsRouter);
 app.use('/api/market_flows', marketFlowsRouter);
 app.use('/api/flow_insights', flowInsightsRouter);
 app.use('/api/login', loginRouter);
+app.use('/api/dashboard', dashboardRouter);
 
 app.get('/', (req, res) => {
   res.send('Trading Journal API (Firestore) is up!');
