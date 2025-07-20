@@ -1,4 +1,4 @@
-import { db } from '../config/firebase.js';
+import { db } from '../firebase.js';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import jwt from 'jsonwebtoken';

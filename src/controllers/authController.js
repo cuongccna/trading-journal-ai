@@ -1,4 +1,4 @@
-import { db } from '../config/firebase.js';
+import { db } from '../firebase.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
