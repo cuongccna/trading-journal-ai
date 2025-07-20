@@ -28,7 +28,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/users', usersRouter);
-app.use('/api/trades', tradesRouter);
 app.use('/api/accounts', accountsRouter);
 app.use('/api/tags', tagsRouter);
 app.use('/api/notes', notesRouter);

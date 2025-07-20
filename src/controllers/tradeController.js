@@ -1,9 +1,14 @@
 import { db } from '../config/firebase.js';
 import { v4 as uuidv4 } from 'uuid';
+import { tradeSchema } from '../validators/tradeValidator.js';
 
 export const createTrade = async (req, res) => {
+  const result = tradeSchema.safeParse(req.body);
+  if (!result.success) {
+    return res.status(400).json({ error: result.error.errors });
+  }
   const id = uuidv4();
-  const trade = { id, ...req.body };
+  const trade = { id, ...result.data };
   await db.collection('trades').doc(id).set(trade);
   res.status(201).json(trade);
 };
