@@ -11,10 +11,14 @@ router.post('/', async (req, res) => {
   if (!result.success) {
     return res.status(400).json({ error: result.error.errors });
   }
-  // Lưu vào Firestore
-  const data = result.data;
-  const docRef = await db.collection('trades').add(data);
-  return res.json({ id: docRef.id, ...data });
+  try {
+    const data = result.data;
+    const docRef = await db.collection('trades').add(data);
+    return res.json({ id: docRef.id, ...data });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to create trade' });
+  }
 });
 
 router.post('/', createTrade);
