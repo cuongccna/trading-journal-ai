@@ -1,7 +1,7 @@
 import { db } from '../config/firebase.js';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
-import jwt from 'jsonwebtoken'; // Nhớ cài npm install jsonwebtoken
+import jwt from 'jsonwebtoken';
 
 export const createUser = async (req, res) => {
   try {
