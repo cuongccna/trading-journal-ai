@@ -1,4 +1,4 @@
-import { db } from '../config/firebase.js';
+import { db } from '../firebase.js';
 import { v4 as uuidv4 } from 'uuid';
 
 export const createTag = async (req, res) => {
