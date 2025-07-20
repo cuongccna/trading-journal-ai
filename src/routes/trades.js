@@ -3,7 +3,6 @@ import { createTrade, deleteTrade, getTrades, updateTrade } from '../controllers
 
 const router = express.Router();
 
-
 router.post('/', createTrade);
 router.get('/', getTrades);
 router.put('/:id', updateTrade);

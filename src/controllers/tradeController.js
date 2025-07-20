@@ -1,16 +1,18 @@
 import { db } from '../firebase.js';
 import { v4 as uuidv4 } from 'uuid';
+import { tradeSchema } from '../validators/tradeValidator.js';
 
 export const createTrade = async (req, res) => {
-  try {
-    const id = uuidv4();
-    const trade = { id, ...req.body };
-    await db.collection('trades').doc(id).set(trade);
-    res.status(201).json(trade);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to create trade' });
+
+  const result = tradeSchema.safeParse(req.body);
+  if (!result.success) {
+    return res.status(400).json({ error: result.error.errors });
   }
+  const id = uuidv4();
+  const trade = { id, ...result.data };
+  await db.collection('trades').doc(id).set(trade);
+  res.status(201).json(trade);
+
 };
 
 export const getTrades = async (req, res) => {
