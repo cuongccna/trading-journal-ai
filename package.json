@@ -15,9 +15,13 @@
   },
   "homepage": "https://github.com/cuongccna/trading-journal-ai#readme",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -25,10 +29,12 @@
     "firebase": "^12.0.0",
     "firebase-admin": "^13.4.0",
     "jsonwebtoken": "^9.0.2",
+    "react-redux": "^9.2.0",
     "uuid": "^11.1.0",
     "zod": "^4.0.5"
   },
   "devDependencies": {
+    "jest": "^30.0.4",
     "nodemon": "^3.1.10"
   }
 }
