@@ -26,4 +26,7 @@ if (!admin.apps.length) {
 
 
 export const db = admin.firestore();
+
 export { admin }; // <- Xuất ra để sử dụng ở chỗ khác
+export default admin;
+
